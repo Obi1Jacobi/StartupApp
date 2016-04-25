@@ -1,0 +1,13 @@
+PODS:
+  - Firebase (2.5.1)
+  - ForecastIO (1.5.0)
+
+DEPENDENCIES:
+  - Firebase (>= 2.5.1)
+  - ForecastIO
+
+SPEC CHECKSUMS:
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  ForecastIO: b6b3e26e7134acf8a05388cc513a9e7eb18846b7
+
+COCOAPODS: 0.39.0
