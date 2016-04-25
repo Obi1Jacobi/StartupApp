@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         self.tempLoading?.hidden = true
         
         self.tempLabel?.text = "Temperature: \(intTemp)"
+        //test change to the code
     }
     
     override func viewDidLoad() {
