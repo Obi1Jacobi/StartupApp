@@ -16,8 +16,30 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5O-BO-FaB">
+                                <rect key="frame" x="300" y="299" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pOf-up-1DE">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pOf-up-1DE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6OC-sT-kRY"/>
+                            <constraint firstItem="I5O-BO-FaB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gQg-My-dzK"/>
+                            <constraint firstItem="pOf-up-1DE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pry-5K-sE8"/>
+                            <constraint firstItem="I5O-BO-FaB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zFE-e8-WOI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tempLabel" destination="I5O-BO-FaB" id="p2y-xm-ggw"/>
+                        <outlet property="tempLoading" destination="pOf-up-1DE" id="AHb-9D-0C3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

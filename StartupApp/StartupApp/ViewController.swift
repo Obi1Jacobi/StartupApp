@@ -12,6 +12,9 @@ import ForecastIO
 
 class ViewController: UIViewController {
 
+    @IBOutlet var tempLabel:UILabel? = UILabel()
+    @IBOutlet var tempLoading:UIActivityIndicatorView? = UIActivityIndicatorView()
+    
     func test() {
         let forecastIOClient = APIClient(apiKey: "3fd99f3c6b90149f3f3e7f599a47a5a6")
         
@@ -21,7 +24,14 @@ class ViewController: UIViewController {
         forecastIOClient.getForecast(latitude: myLat, longitude: myLon) { (currentForecast, error) -> Void in
             if let currentForecast = currentForecast {
                 //  We got the current forecast!
-                print(currentForecast)
+                let currently = currentForecast.currently
+                let temp = currently?.temperature
+                
+                //This is because it is trying to update things on the main UI thread and it throws an exception
+                dispatch_async(dispatch_get_main_queue(), {
+                    // code here
+                    self.updateTemp(temp!)
+                })
             } else if let error = error {
                 //  Uh-oh we have an error!
                 print("There is an error: \(error)")
@@ -30,8 +40,20 @@ class ViewController: UIViewController {
         
     }
     
+    func updateTemp(temperature:Float) {
+        let roundTemp = round(temperature)
+        let intTemp = Int(roundTemp)
+        
+        self.tempLoading?.stopAnimating()
+        self.tempLoading?.hidden = true
+        
+        self.tempLabel?.text = "Temperature: \(intTemp)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tempLoading?.startAnimating()
         
         self.test()
         // Do any additional setup after loading the view, typically from a nib.
